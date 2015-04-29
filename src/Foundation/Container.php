@@ -1,4 +1,4 @@
-<?php namespace Bkoetsier\BaseConsole;
+<?php namespace Bkoetsier\BaseConsole\Foundation;
 
 use ErrorException;
 use Illuminate\Container\Container as LaravelContainer;
@@ -210,7 +210,7 @@ class Container extends LaravelContainer implements ApplicationContract
      *
      * @param  string $provider
      * @param  string $service
-     * @return void
+     * @return \Illuminate\Support\ServiceProvider
      */
     public function registerDeferredProvider($provider, $service = null)
     {

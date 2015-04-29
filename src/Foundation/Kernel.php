@@ -1,8 +1,8 @@
-<?php namespace Bkoetsier\BaseConsole;
+<?php namespace Bkoetsier\BaseConsole\Foundation;
 
 use Exception;
 use RuntimeException;
-use Bkoetsier\BaseConsole\Application as BaseConsole;
+use Bkoetsier\BaseConsole\Foundation\Application as BaseConsole;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 
 class Kernel implements KernelContract
@@ -11,7 +11,7 @@ class Kernel implements KernelContract
     /**
      * The application implementation.
      *
-     * @var \Bkoetsier\BaseConsole\Container $container
+     * @var \Bkoetsier\BaseConsole\Foundation\Container $container
      */
     protected $container;
 
@@ -30,7 +30,7 @@ class Kernel implements KernelContract
 
     /**
      * Create a new console kernel instance.
-     * @param \Bkoetsier\BaseConsole\Container $container
+     * @param \Bkoetsier\BaseConsole\Foundation\Container $container
      */
     public function __construct(Container $container)
     {
@@ -105,7 +105,7 @@ class Kernel implements KernelContract
     /**
      * Get the BaseConsole application instance.
      *
-     * @return \Bkoetsier\BaseConsole\Application
+     * @return \Bkoetsier\BaseConsole\Foundation\Application
      */
     protected function getBaseConsole()
     {

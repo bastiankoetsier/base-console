@@ -1,6 +1,6 @@
 <?php
 
-use Bkoetsier\BaseConsole\Container;
+use Bkoetsier\BaseConsole\Foundation\Container;
 use Illuminate\Support\Str;
 
 if (! function_exists('env')) {
@@ -51,7 +51,7 @@ if (! function_exists('app')) {
      *
      * @param  string  $make
      * @param  array   $parameters
-     * @return mixed|\Bkoetsier\BaseConsole\Container
+     * @return mixed|\Bkoetsier\BaseConsole\Foundation\Container
      */
     function app($make = null, $parameters = [])
     {

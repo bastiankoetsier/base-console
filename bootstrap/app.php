@@ -5,11 +5,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $basePath = realpath(__DIR__ . '/../');
 $providersFile = $basePath.DIRECTORY_SEPARATOR.'service_providers.php';
-$app = new \Bkoetsier\BaseConsole\Container($basePath);
+$app = new \Bkoetsier\BaseConsole\Foundation\Container($basePath);
 
 $app->singleton(
     'Illuminate\Contracts\Console\Kernel',
-    'Bkoetsier\BaseConsole\Kernel'
+    'Bkoetsier\BaseConsole\Foundation\Kernel'
 );
 
 if(file_exists($providersFile))

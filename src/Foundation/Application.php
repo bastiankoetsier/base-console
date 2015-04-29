@@ -1,4 +1,4 @@
-<?php namespace Bkoetsier\BaseConsole;
+<?php namespace Bkoetsier\BaseConsole\Foundation;
 
 use Illuminate\Console\Application as LaravelConsole;
 use Illuminate\Contracts\Events\Dispatcher;
