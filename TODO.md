@@ -1,7 +1,6 @@
 # Tasks
 - Log Path
 - symlink (?) service_provider in basedir
-- better folder structure in src / namespacing
 - cleanup container-aliases
 
 
