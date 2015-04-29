@@ -1,0 +1,28 @@
+{
+    "name": "bkoetsier/base-console",
+    "description": "basic framework for console apps",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bastian Koetsier",
+            "email": "bastian.koetsier@googlemail.com"
+        }
+    ],
+    "require": {
+        "illuminate/contracts": "~5.0",
+        "illuminate/console": "~5.0",
+        "illuminate/events": "~5.0",
+        "illuminate/log": "~5.0"
+    },
+    "autoload":{
+      "psr-4":{
+        "Bkoetsier\\BaseConsole\\":"src"
+      },
+      "files":[
+        "src/helpers.php"
+      ]
+    },
+    "bin":[
+      "bin/base"
+    ]
+}
