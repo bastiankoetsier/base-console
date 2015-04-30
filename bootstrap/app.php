@@ -1,16 +1,26 @@
 <?php
 
-require_once __DIR__ . '/../../../autoload.php';  // composer dependency
+$vendorPath = realpath(__DIR__ . '/../../../');
+#$vendorPath = realpath(__DIR__.'/../../vendor');
 
+if( ! $vendorPath)
+{
+    die('No autoloader configured. Please call composer install');
+}
+require_once $vendorPath.DIRECTORY_SEPARATOR.'autoload.php';  // composer dependency
 
-$basePath = realpath(__DIR__ . '/../');
-$providersFile = $basePath.DIRECTORY_SEPARATOR.'service_providers.php';
+$basePath = realpath($vendorPath.'/../');
+$providersFile =$basePath.DIRECTORY_SEPARATOR.'service_providers.php';
 $app = new \Bkoetsier\BaseConsole\Foundation\Container($basePath);
 
 $app->singleton(
     'Illuminate\Contracts\Console\Kernel',
     'Bkoetsier\BaseConsole\Foundation\Kernel'
 );
+$app->bind('vendorPath', function($app)use($vendorPath)
+{
+    return $vendorPath;
+});
 
 if(file_exists($providersFile))
 {

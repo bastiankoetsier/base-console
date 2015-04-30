@@ -251,6 +251,11 @@ class Container extends LaravelContainer implements ApplicationContract
         return $this->basePath($path);
     }
 
+    public function vendorPath()
+    {
+        return $this->make('vendorPath');
+    }
+
     /**
      * Get the storage path for the application.
      *
