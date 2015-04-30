@@ -281,8 +281,6 @@ class Container extends LaravelContainer implements ApplicationContract
         'events' => 'registerEventBindings',
         'Illuminate\Contracts\Events\Dispatcher' => 'registerEventBindings',
         'Illuminate\Contracts\Debug\ExceptionHandler' => 'registerErrorBindings',
-        'log' => 'registerLogBindings',
-        'Psr\Log\LoggerInterface' => 'registerLogBindings',
     ];
 
     /**
@@ -300,30 +298,6 @@ class Container extends LaravelContainer implements ApplicationContract
     }
 
     /**
-     * Register container bindings for the application.
-     *
-     * @return void
-     */
-    protected function registerLogBindings()
-    {
-        $this->singleton('Psr\Log\LoggerInterface', function () {
-            return new Logger('lumen', [$this->getMonologHandler()]);
-        });
-    }
-
-    /**
-     * Get the Monolog handler for the application.
-     *
-     * @return \Monolog\Handler\AbstractHandler
-     */
-    protected function getMonologHandler()
-    {
-        return (new StreamHandler(storage_path('logs/baseConsole.log'), Logger::DEBUG))
-            ->setFormatter(new LineFormatter(null, null, true, true));
-    }
-
-
-    /**
      * Register the core container aliases.
      *
      * @return void
@@ -335,7 +309,6 @@ class Container extends LaravelContainer implements ApplicationContract
             'Illuminate\Contracts\Cache\Factory' => 'cache',
             'Illuminate\Contracts\Container\Container' => 'app',
             'Illuminate\Contracts\Events\Dispatcher' => 'events',
-            'log' => 'Psr\Log\LoggerInterface',
         ];
     }
 

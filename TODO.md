@@ -1,6 +1,4 @@
 # Tasks
-- Log Path
-- symlink (?) service_provider in basedir
 - cleanup container-aliases
 
 

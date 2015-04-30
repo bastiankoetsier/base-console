@@ -22,11 +22,7 @@ class Handler implements ExceptionHandler
      */
     public function report(Exception $e)
     {
-        if ($this->shouldntReport($e)) {
-            return;
-        }
-
-        app('Psr\Log\LoggerInterface')->error((string) $e);
+        return;
     }
 
     /**
