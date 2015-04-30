@@ -26,9 +26,8 @@ if(file_exists($customProvidersFile))
 {
     $customProviders = require_once $customProvidersFile;
     $providers = array_merge($providers,$customProviders);
-    foreach($providers as $serviceProvider){
-        $app->register($serviceProvider);
-    }
 }
-
+foreach($providers as $serviceProvider){
+    $app->register($serviceProvider);
+}
 return $app;
