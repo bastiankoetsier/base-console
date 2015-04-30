@@ -23,7 +23,7 @@ class ComposerInit {
         $src = __DIR__ . '/../service_providers.php';
         $dst = self::$baseDir . DIRECTORY_SEPARATOR . 'service_providers.php';
         if( ! file_exists($dst)){
-            var_dump(copy($src, $dst));
+            copy($src, $dst);
         }
     }
 
