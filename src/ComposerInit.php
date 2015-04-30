@@ -23,7 +23,7 @@ class ComposerInit {
         $src = __DIR__ . '/../service_providers.php';
         $dst = self::$baseDir . DIRECTORY_SEPARATOR . 'service_providers.php';
         if( ! file_exists($dst)){
-            copy($src, $dst);
+            var_dump(copy($src, $dst));
         }
     }
 
@@ -36,7 +36,7 @@ class ComposerInit {
         $composer = $event->getComposer();
         $config = $composer->getConfig();
         self::$vendorDir = realpath($config->get('vendor-dir'));
-        self::$baseDir = realpath(self::$vendorDir . '../');
+        self::$baseDir = realpath(self::$vendorDir . '../../../');
     }
 
 
