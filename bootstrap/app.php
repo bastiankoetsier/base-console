@@ -10,7 +10,7 @@ if( ! $vendorPath)
 require_once $vendorPath.DIRECTORY_SEPARATOR.'autoload.php';  // composer dependency
 
 $basePath = realpath($vendorPath.'/../');
-$providersFile =$basePath.DIRECTORY_SEPARATOR.'service_providers.php';
+$customProvidersFile = $basePath.DIRECTORY_SEPARATOR.'service_providers.php';
 $app = new \Bkoetsier\BaseConsole\Foundation\Container($basePath);
 
 $app->singleton(
@@ -21,10 +21,11 @@ $app->bind('vendorPath', function($app)use($vendorPath)
 {
     return $vendorPath;
 });
-
-if(file_exists($providersFile))
+$providers = require_once('default_providers.php');
+if(file_exists($customProvidersFile))
 {
-    $providers = require_once $providersFile;
+    $customProviders = require_once $customProvidersFile;
+    $providers = array_merge($providers,$customProviders);
     foreach($providers as $serviceProvider){
         $app->register($serviceProvider);
     }
