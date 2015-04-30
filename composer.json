@@ -26,6 +26,8 @@
     ],
     "scripts":{
       "post-update-cmd":"Bkoetsier\\BaseConsole\\ComposerInit::postPackageInstall",
-      "post-install-cmd":"Bkoetsier\\BaseConsole\\ComposerInit::postPackageInstall"
+      "post-install-cmd":"Bkoetsier\\BaseConsole\\ComposerInit::postPackageInstall",
+      "post-package-install":"Bkoetsier\\BaseConsole\\ComposerInit::postPackageInstall",
+      "post-package-update":"Bkoetsier\\BaseConsole\\ComposerInit::postPackageInstall"
     }
 }
