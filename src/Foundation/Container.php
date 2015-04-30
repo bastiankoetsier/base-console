@@ -4,9 +4,6 @@ use ErrorException;
 use Illuminate\Container\Container as LaravelContainer;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 use Illuminate\Support\ServiceProvider;
-use Monolog\Formatter\LineFormatter;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Container extends LaravelContainer implements ApplicationContract
@@ -305,7 +302,7 @@ class Container extends LaravelContainer implements ApplicationContract
     protected function registerContainerAliases()
     {
         $this->aliases = [
-            'Bkoetsier\BaseConsole\Container' => 'app',
+            'Bkoetsier\BaseConsole\Foundation\Container' => 'app',
             'Illuminate\Contracts\Cache\Factory' => 'cache',
             'Illuminate\Contracts\Container\Container' => 'app',
             'Illuminate\Contracts\Events\Dispatcher' => 'events',
