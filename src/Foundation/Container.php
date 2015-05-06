@@ -67,6 +67,7 @@ class Container extends LaravelContainer implements ApplicationContract
         date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 
         $this->basePath = $basePath;
+        $this->instance('path',$this->path());
         $this->bootstrapContainer();
         $this->registerErrorHandling();
     }
@@ -246,6 +247,11 @@ class Container extends LaravelContainer implements ApplicationContract
         }
         $this->basePath = getcwd();
         return $this->basePath($path);
+    }
+
+    public function path()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'app';
     }
 
     public function vendorPath()
