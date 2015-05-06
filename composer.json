@@ -12,7 +12,8 @@
         "illuminate/contracts": "~5.0",
         "illuminate/console": "~5.0",
         "illuminate/events": "~5.0",
-        "illuminate/filesystem": "~5.0"
+        "illuminate/filesystem": "~5.0",
+        "symfony/process": "~2.6"
     },
     "autoload":{
       "psr-4":{
@@ -21,8 +22,6 @@
       "files":[
         "src/helpers.php"
       ]
-    },
-    "bin":[
-      "bin/base"
-    ]
+    }
+
 }
