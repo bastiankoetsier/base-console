@@ -2,9 +2,10 @@
 
 use Illuminate\Filesystem\FilesystemServiceProvider;
 use Illuminate\Filesystem\Filesystem as LaravelFilesystem;
+use Illuminate\Support\ServiceProvider;
 
 
-class Filesystem extends FilesystemServiceProvider{
+class Filesystem extends ServiceProvider{
 
     public function register()
     {
