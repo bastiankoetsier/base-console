@@ -31,13 +31,6 @@ class Container extends LaravelContainer implements ApplicationContract
     protected $storagePath;
 
     /**
-     * The configuration path of the application installation.
-     *
-     * @var string
-     */
-    protected $configPath;
-
-    /**
      * The loaded service providers.
      *
      * @var array
@@ -80,9 +73,7 @@ class Container extends LaravelContainer implements ApplicationContract
     protected function bootstrapContainer()
     {
         static::setInstance($this);
-
         $this->instance('app', $this);
-
         $this->registerContainerAliases();
     }
 
@@ -95,7 +86,8 @@ class Container extends LaravelContainer implements ApplicationContract
     {
         if (! $this->bound('Illuminate\Contracts\Debug\ExceptionHandler')) {
             $this->singleton(
-                'Illuminate\Contracts\Debug\ExceptionHandler', 'Bkoetsier\BaseConsole\Exceptions\Handler'
+                'Illuminate\Contracts\Debug\ExceptionHandler',
+                'Bkoetsier\BaseConsole\Exceptions\Handler'
             );
         }
     }
@@ -176,7 +168,7 @@ class Container extends LaravelContainer implements ApplicationContract
      */
     public function registerConfiguredProviders()
     {
-        // TODO: Implement registerConfiguredProviders() method.
+        throw new \RuntimeException("no configured providers");
     }
 
     /**
@@ -254,11 +246,6 @@ class Container extends LaravelContainer implements ApplicationContract
         return $this->basePath.DIRECTORY_SEPARATOR.'app';
     }
 
-    public function vendorPath()
-    {
-        return $this->make('vendorPath');
-    }
-
     /**
      * Get the storage path for the application.
      *
@@ -309,7 +296,6 @@ class Container extends LaravelContainer implements ApplicationContract
     {
         $this->aliases = [
             'Bkoetsier\BaseConsole\Foundation\Container' => 'app',
-            'Illuminate\Contracts\Cache\Factory' => 'cache',
             'Illuminate\Contracts\Container\Container' => 'app',
             'Illuminate\Contracts\Events\Dispatcher' => 'events',
         ];
